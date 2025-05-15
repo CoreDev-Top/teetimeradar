@@ -87,7 +87,7 @@ const AlertSuggestionModal = ({
 
     return (
         <div
-            className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+            className="modal fade fixed top-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto z-10 max-w-[850px] mx-auto"
             id="lowChanceModal"
             tabIndex="-1"
             aria-labelledby="lowChanceModalLabel"

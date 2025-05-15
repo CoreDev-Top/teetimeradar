@@ -6,6 +6,7 @@ import { Toaster } from 'sonner'
 import './App.scss'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import lazy from 'react-lazy-with-preload'
+//import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'animate.css'
 import UnsubscribePage from './pages/UnsubscribePage'
 

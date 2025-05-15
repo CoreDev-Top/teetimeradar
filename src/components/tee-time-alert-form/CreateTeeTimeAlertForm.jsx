@@ -48,8 +48,10 @@ const CreateTeeTimeAlertForm = ({ handleOnSubmission, ShowNotification }) => {
 
     const handleCreateNewAlert = useCallback(
         async (submittedPreferences, lowChanceModalOpened) => {
+            console.log('submittedPreferences', submittedPreferences)
             // only proceed if preferences contain 5 fields, other wise show error please fill all fields
             if (!(submittedPreferences?.courses?.length > 0)) {
+                console.log("111111111111111111")
                 setAddNewAlertError('Please choose a course!')
                 return
             }
@@ -65,18 +67,22 @@ const CreateTeeTimeAlertForm = ({ handleOnSubmission, ShowNotification }) => {
             )
 
             if (!allFieldsExist) {
+                console.log("222222222222222222222222222222222222222222")
                 setAddNewAlertError('Please fill all fields!')
                 return
             }
 
             // make sure all preferences values are not empty or null, and if the value is an array, make sure it has at least one element
             for (const [key, value] of Object.entries(submittedPreferences)) {
+                console.log("333333333333333333333333333333")
                 if (key === 'alerts_sent') return
                 if (value === null || value === '') {
+                    console.log("44444444444444444444444444444")
                     setAddNewAlertError('Please fill all fields!')
                     return
                 }
                 if (Array.isArray(value) && value.length === 0) {
+                    console.log("55555555555555555555555555555")
                     setAddNewAlertError('Please fill all fields!')
                     return
                 }
@@ -85,10 +91,11 @@ const CreateTeeTimeAlertForm = ({ handleOnSubmission, ShowNotification }) => {
             // if alert chances are low, open modal lowChanceModalRef
 
             if (!lowChanceModalOpened) {
-                //  if (alertChance === 'Low' || alertChance === 'Medium') {
+                console.log("66666666666666666666666666666")
+                // if (alertChance === 'Low' || alertChance === 'Medium') {
                 lowChanceModalRef?.current.click()
                 return
-                //  }
+                // }
             }
 
             handleOnSubmission(submittedPreferences, setAddNewAlertError)
@@ -270,7 +277,7 @@ const CreateTeeTimeAlertForm = ({ handleOnSubmission, ShowNotification }) => {
             <div className="form-check form-switch my-10 bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-xs">
                 <div className="form-check form-switch">
                     <input
-                        className="form-check-input appearance-none w-9 -ml-10 rounded-full float-left h-5 align-top bg-white bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-xs"
+                        className="form-check-input appearance-none w-9 -ml-15 rounded-full float-left h-5 align-top bg-white bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-xs"
                         checked={preferences?.recurring === 'weekly'}
                         onChange={() => {
                             if (preferences?.recurring === 'weekly') {
